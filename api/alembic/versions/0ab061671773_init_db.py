@@ -33,6 +33,9 @@ def upgrade():
     sa.ForeignKeyConstraint(['company_id'], ['company.id'], name=op.f('fk_company_process_company_id_company')),
     sa.ForeignKeyConstraint(['process_id'], ['process.id'], name=op.f('fk_company_process_process_id_process'))
     )
+    op.execute("""
+            INSERT INTO company (id, name) VALUES (1, 'criaway');
+        """)
     # ### end Alembic commands ###
 
 def downgrade():
